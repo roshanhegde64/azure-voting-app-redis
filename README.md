@@ -92,6 +92,37 @@ Step 20: In order to scale the nodes use below commands: Below command will scal
 
 az aks scale --resource-group mydemo --name mycluster --node-count 4
 
+Step 21: Make changes to the code and follow below steps to verify updated application and deployment. 
+For webapp, making change to config_file.cfg.
+
+Step 22: Once update made on code execute below step on console.
+
+docker-compose up --build -d
+
+Step 23: Test the application locally to verify the changes in the code.
+
+http://localhost:8080
+
+
+Step 24: Update the tag version to v2 for better understanding
+
+docker tag azure-vote-front roshanhegde333.azurecr.io/azure-vote-front:v2
+
+Step 25: Push the updated version to Azure Container registry 
+
+
+docker push roshanhegde333.azurecr.io/azure-vote-front:v2
+
+
+Step 26: Deploy the updated image using the below command
+
+kubectl set image deployment azure-vote-front azure-vote-front=roshanhegde333.azurecr.io/azure-vote-front:v2
+
+Step 27: Test the application using the IP. In case of my execution below is the IP
+
+40.88.17.1
+
+
 
 
 
